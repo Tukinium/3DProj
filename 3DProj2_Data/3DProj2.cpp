@@ -1,6 +1,6 @@
 ﻿// 3DProj2.cpp : アプリケーションのエントリ ポイントを定義します。
 //
-#include<Windows.h>
+
 #include "3DProj2.h"
 
 //#define MAX_LOADSTRING 100
