@@ -90,6 +90,20 @@ bool Kd3DDevice::Create(const HWND& hWnd, int w, int h, bool isFullScreen, bool 
 		return false;
 	}
 
+	m_spBuckBuffer = std::make_shared<KdTexture>();
+	if (!m_spBuckBuffer)
+	{
+		resultErrMes = "バックバッファテクスチャインスタンス化失敗";
+		return false;
+	}
+	if (m_spBuckBuffer->Create(cpBackBuffer.Get()) == false)
+	{
+		resultErrMes = "バックバッファテクスチャ作成失敗";
+		return false;
+	}
+	m_cpDeviceContext->OMSetRenderTargets
+	(1, m_spBuckBuffer->RTVAddress(), nullptr);
+
 
 	return true;
 }

@@ -18,7 +18,10 @@
     <ClCompile Include="3DProj2_Data\Pch.cpp">
       <Filter>3DProj_Data</Filter>
     </ClCompile>
-    <ClCompile Include="3DProj2_Data\Framework\KdDevice.cpp">
+    <ClCompile Include="3DProj2_Data\Framework\Kd3DDevice.cpp">
+      <Filter>3DProj_Data\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="3DProj2_Data\Framework\KdTexture.cpp">
       <Filter>3DProj_Data\Framework</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,10 +32,13 @@
     <ClInclude Include="3DProj2_Data\Pch.h">
       <Filter>3DProj_Data</Filter>
     </ClInclude>
-    <ClInclude Include="3DProj2_Data\Framework\KdDevice.h">
+    <ClInclude Include="3DProj2_Data\Framework\Kd3DDevice.h">
       <Filter>3DProj_Data\Framework</Filter>
     </ClInclude>
     <ClInclude Include="3DProj2_Data\Framework\KdFramework.h">
+      <Filter>3DProj_Data\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="3DProj2_Data\Framework\KdTexture.h">
       <Filter>3DProj_Data\Framework</Filter>
     </ClInclude>
   </ItemGroup>

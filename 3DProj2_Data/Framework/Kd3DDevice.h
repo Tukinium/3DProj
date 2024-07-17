@@ -1,8 +1,14 @@
 #pragma once
-#include <string>
+class KdTexture;
+
 class Kd3DDevice
 {
 public:
+
+	ID3D11Device* GetDevice()const {
+		return m_cpDevice.Get();
+	}
+
 	struct DeviceParam
 	{
 		int windowSizeW = 1280;
@@ -19,6 +25,8 @@ public:
 		std::string& resultErrMes);
 
 private:
+	std::shared_ptr<KdTexture> m_spBuckBuffer = nullptr;
+
 	//スワップチェイン
 	ComPtr<IDXGISwapChain> m_cpGISwapChain = nullptr;
 

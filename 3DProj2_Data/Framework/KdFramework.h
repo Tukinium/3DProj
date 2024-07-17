@@ -11,4 +11,6 @@ using Microsoft::WRL::ComPtr;
 
 #include<d3d11.h>
 #include<dxgi.h>
-#include"KdDevice.h"
+#include"Kd3DDevice.h"
+
+#include"KdTexture.h"
