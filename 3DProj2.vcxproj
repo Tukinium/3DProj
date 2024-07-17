@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="3DProj2_Data\3DProj2.cpp" />
+    <ClCompile Include="3DProj2_Data\Framework\KdDevice.cpp" />
     <ClCompile Include="3DProj2_Data\Pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pch.h</PrecompiledHeaderFile>
@@ -29,6 +30,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3DProj2_Data\3DProj2.h" />
+    <ClInclude Include="3DProj2_Data\Framework\KdDevice.h" />
+    <ClInclude Include="3DProj2_Data\Framework\KdFramework.h" />
     <ClInclude Include="3DProj2_Data\Pch.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

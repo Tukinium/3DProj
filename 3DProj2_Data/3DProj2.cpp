@@ -107,6 +107,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   //DirectX Initialize
+
+   std::string errMsg = "";
+   Kd3DDevice::GetInstance().Create(hWnd, 1280, 720, false, true, errMsg);
+
    return TRUE;
 }
 

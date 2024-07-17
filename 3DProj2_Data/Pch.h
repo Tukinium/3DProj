@@ -35,3 +35,6 @@
 #include <string>
 #include <algorithm>
 
+//Framework
+#include "Framework/KdFramework.h"
+
