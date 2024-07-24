@@ -1,6 +1,6 @@
 //パッチファイル
 
-#define NOMINMAX		// Min Maxマクロの無効化：勝手にwindowsのMin Maxに置換されるのを防止
+#define NOMINMAX        // Min Maxマクロの無効化：勝手にwindowsのMin Maxに置換されるのを防止
 
 #include <SDKDDKVer.h> // 最新のSDKを自動的に定義する
 #include <windows.h>
@@ -35,6 +35,6 @@
 #include <string>
 #include <algorithm>
 
-//Framework
-#include "Framework/KdFramework.h"
-
+#include"Framework/KdFramework.h"
+#include"Framework/Kd3DDevice.h"
+#include"Framework/KdTexture.h"

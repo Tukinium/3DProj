@@ -24,6 +24,9 @@
     <ClCompile Include="3DProj2_Data\Framework\KdTexture.cpp">
       <Filter>3DProj_Data\Framework</Filter>
     </ClCompile>
+    <ClCompile Include="3DProj2_Data\Application\Application.cpp">
+      <Filter>3DProj_Data\Application</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3DProj2_Data\3DProj2.h">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="3DProj2_Data\Framework\KdTexture.h">
       <Filter>3DProj_Data\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="3DProj2_Data\Application\Application.h">
+      <Filter>3DProj_Data\Application</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,6 +4,8 @@ class KdTexture;
 class Kd3DDevice
 {
 public:
+	void Begin();
+	void End();
 
 	ID3D11Device* GetDevice()const {
 		return m_cpDevice.Get();
@@ -25,7 +27,7 @@ public:
 		std::string& resultErrMes);
 
 private:
-	std::shared_ptr<KdTexture> m_spBuckBuffer = nullptr;
+	std::shared_ptr<KdTexture> m_spBackBuffer = nullptr;
 
 	//スワップチェイン
 	ComPtr<IDXGISwapChain> m_cpGISwapChain = nullptr;
@@ -36,6 +38,8 @@ private:
 	ComPtr<ID3D11Device>			m_cpDevice = nullptr;            // 作成関係
 	ComPtr<ID3D11DeviceContext>		m_cpDeviceContext = nullptr;     // 描画関係
 
+	//初期化カラー
+	float m_clearCol[4] = { 1,0,1,1 };
 
 	//Singleton
 

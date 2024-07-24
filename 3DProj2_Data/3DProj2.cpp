@@ -2,6 +2,7 @@
 //
 
 #include "3DProj2.h"
+#include "Application/Application.h"
 
 //#define MAX_LOADSTRING 100
 
@@ -9,6 +10,8 @@
 HINSTANCE hInst;                                // 現在のインターフェイス
 //WCHAR szTitle[MAX_LOADSTRING];                  // タイトル バーのテキスト
 //WCHAR szWindowClass[MAX_LOADSTRING];            // メイン ウィンドウ クラス名
+
+HWND g_hwnd; //ウィンドウハンドル
 
 // このコード モジュールに含まれる関数の宣言を転送します:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -41,14 +44,37 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    Application::GetInstance().Start();
+
+    
+
+
     // メイン メッセージ ループ:
     while (GetMessage(&msg, nullptr, 0, 0))
     {
         //if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
         {
+            Application::GetInstance().Update();
+            Application::GetInstance().Draw();
+
+
+            
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+    }
+
+    while (true)
+    {
+        Application::GetInstance().Update();
+        Application::GetInstance().Draw();
+
+        while (PeekMessage(&msg,nullptr,0,0,PM_REMOVE))
+        {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+        }
+        if (!UpdateWindow(g_hwnd)) { break; }
     }
 
     return (int) msg.wParam;
@@ -103,6 +129,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    {
       return FALSE;
    }
+
+   g_hwnd = hWnd;
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);

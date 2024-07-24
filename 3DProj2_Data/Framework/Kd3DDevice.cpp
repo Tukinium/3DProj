@@ -1,5 +1,26 @@
 #include "KdFramework.h"
 
+void Kd3DDevice::Begin()
+{
+	m_cpDeviceContext->OMSetRenderTargets(
+		1, m_spBackBuffer->RTVAddress(), nullptr
+	);
+
+	
+	m_cpDeviceContext->ClearRenderTargetView(
+		m_spBackBuffer->RTV(), m_clearCol
+	);
+
+}
+
+void Kd3DDevice::End()
+{
+	if (FAILED(m_cpGISwapChain->Present(0, 0)))
+	{
+		assert(0 && "画面更新の失敗");
+	}
+}
+
 bool Kd3DDevice::Create(const HWND& hWnd, int w, int h, bool isFullScreen, bool isDebug, std::string& resultErrMes)
 {
 	// ウィンドウハンドル保存
@@ -90,19 +111,19 @@ bool Kd3DDevice::Create(const HWND& hWnd, int w, int h, bool isFullScreen, bool 
 		return false;
 	}
 
-	m_spBuckBuffer = std::make_shared<KdTexture>();
-	if (!m_spBuckBuffer)
+	m_spBackBuffer = std::make_shared<KdTexture>();
+	if (!m_spBackBuffer)
 	{
 		resultErrMes = "バックバッファテクスチャインスタンス化失敗";
 		return false;
 	}
-	if (m_spBuckBuffer->Create(cpBackBuffer.Get()) == false)
+	if (m_spBackBuffer->Create(cpBackBuffer.Get()) == false)
 	{
 		resultErrMes = "バックバッファテクスチャ作成失敗";
 		return false;
 	}
 	m_cpDeviceContext->OMSetRenderTargets
-	(1, m_spBuckBuffer->RTVAddress(), nullptr);
+	(1, m_spBackBuffer->RTVAddress(), nullptr);
 
 
 	return true;
